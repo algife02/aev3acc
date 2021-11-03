@@ -1,0 +1,83 @@
+package aev3;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.text.Document;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+public class llibre {
+	
+	private List<llibre> lista = new ArrayList<llibre>();
+	
+	public void listaLlibre() {}
+	
+	public static class Llibre {
+		
+		private String titol, autor, editorial;
+		int numPag;
+		int any;
+		int id;
+		public Llibre(int id, String titol, String autor, int any, String editorial, int numPag) {
+			this.id = id;
+			this.titol = titol;
+			this.autor = autor;
+			this.any = any;
+			this.editorial = editorial;
+			this.numPag = numPag;
+		}
+		
+		public String getTitol() {
+			return titol;
+		}
+		public void setTitol(String titol) {
+			this.titol = titol;
+		}
+		public String getAutor() {
+			return autor;
+		}
+		public void setAutor(String autor) {
+			this.autor = autor;
+		}
+		public String getEditorial() {
+			return editorial;
+		}
+		public void setEditorial(String editorial) {
+			this.editorial = editorial;
+		}
+		public int getNumPag() {
+			return numPag;
+		}
+		public void setNumPag(int numPag) {
+			this.numPag = numPag;
+		}
+		public int getAny() {
+			return any;
+		}
+		public void setAny(int any) {
+			this.any = any;
+		}
+		public int getId() {
+			return id;
+		}
+		public void setId(int id) {
+			this.id = id;
+		}
+	}
+	
+	public static void writeLlibre(lista) {
+		
+	}
+	
+	DocumentBuilderFactory dFact = DocumentBuilderFactory.newDefaultInstance();
+	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

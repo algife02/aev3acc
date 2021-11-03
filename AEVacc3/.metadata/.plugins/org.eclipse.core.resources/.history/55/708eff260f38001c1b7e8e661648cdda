@@ -1,0 +1,154 @@
+package aev3;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import javax.lang.model.element.Element;
+import javax.swing.text.Document;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
+import com.sun.java_cup.internal.runtime.Scanner;
+import com.sun.tools.sjavac.Transformer;
+
+public class llibre {
+	
+	public static class ListaLlibre {
+		
+		private List<llibre> lista = new ArrayList<llibre>();
+		public void listaLlibre() {}
+		
+		private String titol, autor, editorial;
+		int numPag;
+		int any;
+		int id;
+		public ListaLlibre(int id, String titol, String autor, int any, String editorial, int numPag) {
+			this.id = id;
+			this.titol = titol;
+			this.autor = autor;
+			this.any = any;
+			this.editorial = editorial;
+			this.numPag = numPag;
+		}
+		
+		public String getTitol() {
+			return titol;
+		}
+		public void setTitol(String titol) {
+			this.titol = titol;
+		}
+		public String getAutor() {
+			return autor;
+		}
+		public void setAutor(String autor) {
+			this.autor = autor;
+		}
+		public String getEditorial() {
+			return editorial;
+		}
+		public void setEditorial(String editorial) {
+			this.editorial = editorial;
+		}
+		public int getNumPag() {
+			return numPag;
+		}
+		public void setNumPag(int numPag) {
+			this.numPag = numPag;
+		}
+		public int getAny() {
+			return any;
+		}
+		public void setAny(int any) {
+			this.any = any;
+		}
+		public int getId() {
+			return id;
+		}
+		public void setId(int id) {
+			this.id = id;
+		}
+	}
+	
+	public static void writeLlibre(ListaLlibre lista) {
+		try {
+			DocumentBuilderFactory dFact = DocumentBuilderFactory.newDefaultInstance();
+			
+		} catch (Exception e) {
+			
+		}
+	}
+	
+	
+	public static void writeXmlFile(ListaLlibre lista) {
+		try {
+		DocumentBuilderFactory dFact = DocumentBuilderFactory.newInstance();
+		DocumentBuilder build = dFact.newDocumentBuilder();
+		Document doc = build.newDocument();
+		Element raiz = doc.createElement("llibres");
+		doc.appendChild(raiz);
+		for (llibre can : lista.getListaCanciones()) {
+		Element cancion = doc.createElement("llibre");
+		String id = String.valueOf(can.getId());
+		cancion.setAttribute("id",id); raiz.appendChild(cancion);
+		Element titulo = doc.createElement("titulo");
+		titulo.appendChild(doc.createTextNode(String.valueOf(can.getTitulo())));
+		cancion.appendChild(titulo);
+		Element artista = doc.createElement("autor");
+		artista.appendChild(doc.createTextNode(String.valueOf(can.getArtista())));
+		cancion.appendChild(autor);
+		Element anyo = doc.createElement("anyo");
+		anyo.appendChild(doc.createTextNode(String.valueOf(can.getAnyo())));
+		cancion.appendChild(anyo);
+		Element formato = doc.createElement("editorial");
+		formato.appendChild(doc.createTextNode(String.valueOf(can.getFormato())));
+		cancion.appendChild(editorial);
+		}
+		TransformerFactory tranFactory = TransformerFactory.newInstance(); // Crear serializador
+		Transformer aTransformer = tranFactory.newTransformer();
+		aTransformer.setOutputProperty(OutputKeys.ENCODING, "ISO-8859-1"); // Darle formato al documento
+		aTransformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
+		aTransformer.setOutputProperty(OutputKeys.INDENT, "yes");
+		DOMSource source = new DOMSource(doc);
+		try {
+		FileWriter fw = new FileWriter("canciones2.xml"); // Definir el nombre del fichero y guardar
+		StreamResult result = new StreamResult(fw);
+		aTransformer.transform(source, result);
+		fw.close();
+		} catch (IOException e) {
+		e.printStackTrace();
+		}
+		} catch (TransformerException ex) {
+		System.out.println("Error escribiendo el documento");
+		} catch (ParserConfigurationException ex) {
+		System.out.println("Error construyendo el documento");
+		}
+		}
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		llibre llibre = new llibre();
+		
+		Scanner teclat = new Scanner(System.in);
+		int resp = 0;
+		
+		System.out.println("1- Mostrar tots els títols de la biblioteca");
+		System.out.println("2- Mostrar informació detallada d’un llibre");
+		System.out.println("3- Crear nou llibre");
+		System.out.println("4- Actualitzar llibre");
+		System.out.println("5- Borrar llibre");
+		System.out.println("6- Tanca la biblioteca");
+		
+		
+	}
+
+}

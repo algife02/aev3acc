@@ -1,0 +1,117 @@
+package aev3;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
+public class Biblioteca {
+	
+	public static void mostrarLlibre(llibre most) {
+		try {
+			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+			Document document = dBuilder.parse(new File("libros.xml"));
+			Element raiz = document.getDocumentElement();
+			System.out.println("Contenido XML "+raiz.getNodeName()+":");
+			NodeList nodeList = document.getElementsByTagName("libro");
+			for (int i = 0; i < nodeList.getLength(); i++) {
+			Node node = nodeList.item(i);
+			System.out.println("");
+			if (node.getNodeType() == Node.ELEMENT_NODE) {
+			Element eElement = (Element) node;
+			System.out.println("id : " + eElement.getElementsByTagName("id").item(0).getTextContent());
+			System.out.println("Titulo : " + eElement.getElementsByTagName("titulo").item(0).getTextContent());
+			System.out.println("autor : " + eElement.getElementsByTagName("autor").item(0).getTextContent());
+			System.out.println("any : " + eElement.getElementsByTagName("any").item(0).getTextContent());
+			System.out.println("editorial : " + eElement.getElementsByTagName("editorial").item(0).getTextContent());
+			System.out.println("numPag : " + eElement.getElementsByTagName("numPag").item(0).getTextContent());
+			}
+			}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} 
+		}
+	
+	
+	public static void crearLlibre(llibre lista) {
+		
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		System.out.print("anyadir nuevo libro (s/n)");
+		int idUltimo = 0;
+		try {
+			String respuesta = reader.readLine();
+			while(respuesta.equals("s")) {
+				System.out.print("Titol"); String titol = reader.readLine();
+				System.out.print("autor"); String autor = reader.readLine();
+				System.out.print("editorial"); String editorial = reader.readLine();
+				System.out.print("numPag"); String numPag = reader.readLine();
+				System.out.print("any"); String any = reader.readLine();
+				System.out.print("id"); String id = reader.readLine();
+				int n1 = Integer.parseInt(numPag);
+				int n2 = Integer.parseInt(any);
+				int n3 = Integer.parseInt(id);
+				
+				idUltimo++;
+				lista = new llibre(n3,titol,autor,n2,editorial,n1);
+				System.out.print("anyadir nuevo libro (s/n)");
+				respuesta = reader.readLine();				
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+		llibre llibre = new llibre();
+		
+		Scanner teclat = new Scanner(System.in);
+		int resp = 0;
+		
+		System.out.println("1- Mostrar tots els títols de la biblioteca");
+		System.out.println("2- Mostrar informació detallada d’un llibre");
+		System.out.println("3- Crear nou llibre");
+		System.out.println("4- Actualitzar llibre");
+		System.out.println("5- Borrar llibre");
+		System.out.println("6- Tanca la biblioteca");
+		
+		resp= teclat.nextInt();
+		
+		switch(resp) {
+			case 1:
+				
+			break;
+			case 2:
+				
+			break;
+			case 3:
+			Biblioteca.crearLlibre(llibre);
+			break;
+			case 4:
+				
+			break;
+			case 5:
+				
+			break;
+			case 6:
+				
+			break;
+			
+			default: System.out.print("No has introducido del 1 al 6");
+		}
+	}
+
+}

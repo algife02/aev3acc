@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<libros>
+    <libro id="1">
+        <autor>Suzanne Collins</autor>
+        <titol>los juegos del hambre</titol>
+        <any>2012</any>
+        <editorial>anaya</editorial>
+        <numPag>542</numPag>
+    </libro>
+    <libro id="2">
+        <autor>Gabriel García Márquez</autor>
+        <titol>cien años de soledad</titol>
+        <any>1967</any>
+        <editorial>vinatea</editorial>
+        <numPag>1550</numPag>
+    </libro>
+    <libro id="3">
+        <autor>F. Scott Fitzgerald</autor>
+        <titol>El gran Gatsby</titol>
+        <any>1925</any>
+        <editorial>afers</editorial>
+        <numPag>756</numPag>
+    </libro>
+    <libro id="4">
+        <autor>Harper Lee</autor>
+        <titol>Matar un ruiseñor</titol>
+        <any>1960</any>
+        <editorial>denes</editorial>
+        <numPag>942</numPag>
+    </libro>
+    <libro id="5">
+        <autor>Albert Camus</autor>
+        <titol>El extranjero</titol>
+        <any>1942</any>
+        <editorial>intden</editorial>
+        <numPag>864</numPag>
+    </libro>
+</libros>

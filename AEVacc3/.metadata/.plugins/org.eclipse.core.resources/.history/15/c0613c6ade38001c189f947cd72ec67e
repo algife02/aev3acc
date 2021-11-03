@@ -1,0 +1,85 @@
+package aev3;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import javax.lang.model.element.Element;
+import javax.swing.text.Document;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
+
+
+public class llibre {
+	
+	
+		
+		public List<llibre> lista = new ArrayList<llibre>();
+		public void listaLlibre() {}
+		
+		private String titol, autor, editorial;
+		int numPag;
+		int any;
+		int id;
+		public llibre(int id, String titol, String autor, int any, String editorial, int numPag) {
+			this.id = id;
+			this.titol = titol;
+			this.autor = autor;
+			this.any = any;
+			this.editorial = editorial;
+			this.numPag = numPag;
+			
+			
+		}
+		public llibre() {
+			
+		}
+		
+		public String getTitol() {
+			return titol;
+		}
+		public void setTitol(String titol) {
+			this.titol = titol;
+		}
+		public String getAutor() {
+			return autor;
+		}
+		public void setAutor(String autor) {
+			this.autor = autor;
+		}
+		public String getEditorial() {
+			return editorial;
+		}
+		public void setEditorial(String editorial) {
+			this.editorial = editorial;
+		}
+		public int getNumPag() {
+			return numPag;
+		}
+		public void setNumPag(int numPag) {
+			this.numPag = numPag;
+		}
+		public int getAny() {
+			return any;
+		}
+		public void setAny(int any) {
+			this.any = any;
+		}
+		public int getId() {
+			return id;
+		}
+		public void setId(int id) {
+			this.id = id;
+		}
+	
+	
+}
